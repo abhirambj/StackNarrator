@@ -1,0 +1,8 @@
+{
+  "name": "stacknarrator",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "packageManager": "pnpm@8.15.0",
+  "scripts": { "dev": "turbo run dev", "build": "turbo run build" },
+  "devDependencies": { "turbo": "^1.13" }
+}
