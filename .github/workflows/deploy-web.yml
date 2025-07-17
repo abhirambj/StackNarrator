@@ -15,7 +15,12 @@ jobs:
               with: { version: 8.15.0 }
             - run: pnpm install --frozen-lockfile
             - run: pnpm --filter web build
-            - uses: peaceiris/actions-gh-pages@v4
+            - name: Setup Pages
+              uses: actions/configure-pages@v4
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./apps/web/out
+                  path: './apps/web/out'
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
